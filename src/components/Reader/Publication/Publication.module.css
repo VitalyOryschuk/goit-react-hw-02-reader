@@ -1,0 +1,15 @@
+.article {
+  font-family: sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 26px;
+  line-height: 1.4;
+  text-transform: capitalize;
+}
+
+.text {
+  color: gray;
+  text-align: left;
+}
