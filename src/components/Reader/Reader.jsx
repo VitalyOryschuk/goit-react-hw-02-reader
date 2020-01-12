@@ -20,13 +20,13 @@ export default class Reader extends Component {
 
   handlePrevClick = () => {
     this.setState(state => ({
-      publicationIndex: state.publicationIndex - 1,
+      publicationIndex: (state.publicationIndex -= 1),
     }));
   };
 
   handleNextClick = () => {
     this.setState(state => ({
-      publicationIndex: state.publicationIndex + 1,
+      publicationIndex: (state.publicationIndex += 1),
     }));
   };
 
