@@ -18,30 +18,28 @@ export default class Reader extends Component {
     publicationIndex: 0,
   };
 
-  handlePrevClick = () => {
-    this.setState(state => ({
-      publicationIndex: (state.publicationIndex -= 1),
-    }));
-  };
-
-  handleNextClick = () => {
-    this.setState(state => ({
-      publicationIndex: (state.publicationIndex += 1),
-    }));
+  handleNextPrevClick = e => {
+    e.target.name === 'next'
+      ? this.setState(state => ({
+          publicationIndex: state.publicationIndex + 1,
+        }))
+      : this.setState(state => ({
+          publicationIndex: state.publicationIndex - 1,
+        }));
   };
 
   render() {
     const { items } = this.props;
     const { publicationIndex } = this.state;
     const publication = items[publicationIndex];
+    const btnNextDisable = publicationIndex === items.length - 1;
 
     return (
       <>
         <Controls
-          onPrevClick={this.handlePrevClick}
-          onNextClick={this.handleNextClick}
-          prevBtnDisabled={publicationIndex === 0}
-          nextBtnDisabled={publicationIndex === items.length - 1}
+          onNextPrevClick={this.handleNextPrevClick}
+          prevBtnDisabled={!publicationIndex}
+          nextBtnDisabled={btnNextDisable}
         />
         <Progress currentPage={publicationIndex + 1} totalPages={items.length} />
         <Publication title={publication.title} text={publication.text} />
