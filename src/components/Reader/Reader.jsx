@@ -19,13 +19,11 @@ export default class Reader extends Component {
   };
 
   handleNextPrevClick = e => {
-    e.target.name === 'next'
-      ? this.setState(state => ({
-          publicationIndex: state.publicationIndex + 1,
-        }))
-      : this.setState(state => ({
-          publicationIndex: state.publicationIndex - 1,
-        }));
+    const targetName = e.target.name;
+    this.setState(({ publicationIndex }) => ({
+      publicationIndex:
+        targetName === 'next' ? publicationIndex + 1 : publicationIndex - 1,
+    }));
   };
 
   render() {

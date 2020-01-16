@@ -9,6 +9,7 @@ const Controls = ({ onNextPrevClick, prevBtnDisabled, nextBtnDisabled }) => (
       onClick={onNextPrevClick}
       className={styles.button}
       disabled={prevBtnDisabled}
+      name="prev"
     >
       Prev
     </button>
